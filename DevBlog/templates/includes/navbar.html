@@ -1,0 +1,48 @@
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Dev Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto"><!-- mr-auto tends elements to right -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/articles">Articles</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto"> <!-- ml-auto tends elements to left -->
+
+          {% if session["logged_in"] == True  %} <!-- when the session["logged-in"] is true, it means user logged in, and log out button will appear instead of login. Vice versa happens for else case -->
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">Dashboard</a> <!-- it also puts Dashboard button when logged in -->
+            </li>    
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/addarticle">Add Article</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout">Log out</a>
+            </li>
+          {% else %}
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/login">Log in</a>
+          </li>
+
+                   
+          <li class="nav-item active">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+
+          {% endif %}
+                
+        </ul>
+       </div>
+    
+    </nav>
+<!-- copied from internet. Navbar codes -->
